@@ -4,9 +4,15 @@ import HeaderUpperPart from '../components/HeaderUpperPart';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('home');
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleNavClick = (link) => {
+    setActiveLink(link);
+    setIsMenuOpen(false);
   };
 
   return (
@@ -34,36 +40,48 @@ const Header = () => {
               
               {/* Logo Text */}
               <div className="text-xl lg:text-2xl font-semibold">
-                <span className="text-orange-400">110</span>
-                <span className="text-blue-600 ml-1">Solutions</span>
+                <span className="text-orange-400">Zaarfa</span>
+                <span className="text-[#0C4AA3] ml-1">Solutions</span>
               </div>
             </div>
           </div>
 
           {/* Desktop Navigation Menu */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8 lg:space-x-12">
+            <div className="ml-10 flex items-baseline space-x-2 lg:space-x-4">
               <a
                 href="#home"
-                className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm lg:text-base font-medium transition-colors duration-200"
+                className={`px-3 py-2 text-sm lg:text-base font-medium transition-colors duration-200 ${
+                  activeLink === 'home' ? 'text-[#09307D]' : 'text-[#717275] hover:text-[#09307D]'
+                }`}
+                onClick={() => handleNavClick('home')}
               >
                 Home
               </a>
               <a
                 href="#about"
-                className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm lg:text-base font-medium transition-colors duration-200"
+                className={`px-3 py-2 text-sm lg:text-base font-medium transition-colors duration-200 ${
+                  activeLink === 'about' ? 'text-[#09307D]' : 'text-[#717275] hover:text-[#09307D]'
+                }`}
+                onClick={() => handleNavClick('about')}
               >
                 About
               </a>
               <a
                 href="#services"
-                className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm lg:text-base font-medium transition-colors duration-200"
+                className={`px-3 py-2 text-sm lg:text-base font-medium transition-colors duration-200 ${
+                  activeLink === 'services' ? 'text-[#09307D]' : 'text-[#717275] hover:text-[#09307D]'
+                }`}
+                onClick={() => handleNavClick('services')}
               >
                 Services
               </a>
               <a
                 href="#contact"
-                className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm lg:text-base font-medium transition-colors duration-200"
+                className={`px-3 py-2 text-sm lg:text-base font-medium transition-colors duration-200 ${
+                  activeLink === 'contact' ? 'text-[#09307D]' : 'text-[#717275] hover:text-[#09307D]'
+                }`}
+                onClick={() => handleNavClick('contact')}
               >
                 Contact Us
               </a>
@@ -93,29 +111,37 @@ const Header = () => {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-100">
               <a
                 href="#home"
-                className="text-gray-600 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
+                className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                  activeLink === 'home' ? 'text-[#09307D]' : 'text-[#717275] hover:text-[#09307D]'
+                }`}
+                onClick={() => handleNavClick('home')}
               >
                 Home
               </a>
               <a
                 href="#about"
-                className="text-gray-600 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
+                className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                  activeLink === 'about' ? 'text-[#09307D]' : 'text-[#717275] hover:text-[#09307D]'
+                }`}
+                onClick={() => handleNavClick('about')}
               >
                 About
               </a>
               <a
                 href="#services"
-                className="text-gray-600 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
+                className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                  activeLink === 'services' ? 'text-[#09307D]' : 'text-[#717275] hover:text-[#09307D]'
+                }`}
+                onClick={() => handleNavClick('services')}
               >
                 Services
               </a>
               <a
                 href="#contact"
-                className="text-gray-600 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
+                className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                  activeLink === 'contact' ? 'text-[#09307D]' : 'text-[#717275] hover:text-[#09307D]'
+                }`}
+                onClick={() => handleNavClick('contact')}
               >
                 Contact Us
               </a>
